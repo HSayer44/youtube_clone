@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_clone/screens/search_screen.dart';
+import 'package:youtube_clone/screens/shorts_screen.dart';
+import 'package:youtube_clone/screens/mux_shorts_screen.dart';
 import 'package:youtube_clone/shared/theme.dart';
 
 void main() {
@@ -13,11 +16,12 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       title: 'Youtube clone',
       theme: const AppTheme().themeData,
-      home: const Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+      initialRoute: '/shorts',
+      routes: {
+        '/shorts': (context) => const ShortsScreen(),
+        '/search': (context) => const SearchScreen(),
+      },
+      home: ShortsScreen(),
     );
   }
 }
